@@ -1,0 +1,42 @@
+body {
+    color: $color-dark-grey;
+    font-family: $ff-primary;
+}
+.intro {
+    text-align: center;
+    max-width: 480px;
+    margin: 3rem auto 0;
+
+    h1 {
+        font-weight: 600;
+    }
+    nav {
+        margin-top: 1.5rem;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            li {
+                display: block;
+                text-align: center;
+                
+                a {
+                    display: block;
+                    font-size: 15px;
+                    color: lighten($color-dark-grey, 40);
+                    text-decoration: none;
+                    transition: all 0.15s ease-in;
+
+                    &:hover {
+                        color: $color-dark-grey;
+                    }
+                }
+            }
+        }
+    }
+}

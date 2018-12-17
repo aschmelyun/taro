@@ -1,0 +1,19 @@
+{
+    "view": "layout.default",
+    "slug": "/",
+    "title": "Hello, world!",
+    "menu_items": [
+        {
+            "name": "About",
+            "url": "https://aschmelyun.com/taro"
+        },
+        {
+            "name": "Docs",
+            "url": "https://aschmelyun/taro/docs"
+        },
+        {
+            "name": "Github",
+            "url": "https://github.com/aschmelyun/taro"
+        }
+    ]
+}
