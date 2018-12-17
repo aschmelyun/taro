@@ -10,7 +10,6 @@ mix.webpackConfig({
 
 mix.js('resources/assets/js/app.js', 'dist/assets/js')
    .sass('resources/assets/sass/app.scss', 'dist/assets/css')
-   .copy('resources/assets/img/', 'dist/assets/img')
    .options({
        processCssUrls: false
    });
