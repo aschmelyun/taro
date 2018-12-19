@@ -8,14 +8,12 @@ mix.webpackConfig({
     ]
 });
 
-mix.js('resources/assets/js/app.js', 'dist/assets/js')
+mix.setPublicPath('./')
+   .js('resources/assets/js/app.js', 'dist/assets/js')
    .sass('resources/assets/sass/app.scss', 'dist/assets/css')
    .options({
        processCssUrls: false
-   });
-
-if(process.env.NODE_ENV === 'production') {
-    mix.version();
-}
+   })
+   .version();
 
 mix.browserSync();

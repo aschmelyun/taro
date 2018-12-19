@@ -7,10 +7,11 @@ use Philo\Blade\Blade;
 
 class Taro
 {
-    public $version = '0.2.0';
+    public $version = '0.1.1';
     public $viewsDir = __DIR__ . '/resources/views';
     public $cacheDir = __DIR__ . '/cache';
     public $contentDir = __DIR__ . '/content';
+    public $mixManifest = __DIR__ . '/mix-manifest.json';
     public $outputRoot = 'dist';
 
     private $blade;
@@ -26,9 +27,12 @@ class Taro
     public function init()
     {
         $contentFiles = array_diff(scandir($this->contentDir), array('.', '..'));
+        $mixManifest = json_decode(str_replace('/dist', '', file_get_contents($this->mixManifest)), true);
+
         foreach($contentFiles as $file) {
             $data = json_decode(file_get_contents($this->contentDir . '/' . $file));
             $data->contentDir = $this->contentDir;
+            $data->mix = $mixManifest;
 
             if(!$this->dataHasErrors($data, $file)) {
                 $this->renderPage($data);
