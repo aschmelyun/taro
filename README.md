@@ -4,9 +4,7 @@
 ![License](https://img.shields.io/github/license/aschmelyun/taro.svg?style=flat-square)
 [![Total Downloads](https://img.shields.io/packagist/dt/aschmelyun/taro.svg?style=flat-square)](https://packagist.org/packages/aschmelyun/taro)
 
-A blazing-fast static site generator that uses JSON files for content and the Laravel Blade templating engine to.
-
-A full version of the docs can be found [here](https://aschmelyun.com/taro/docs), below you'll find a quick 'Getting Started' guide.
+A blazing-fast static site generator that uses JSON files for content and leverages the Laravel Blade templating engine.
 
 ![Screenshot of Taro building a site](https://i.imgur.com/Kxtpbcm.png)
 
