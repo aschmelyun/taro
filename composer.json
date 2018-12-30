@@ -13,6 +13,7 @@
     ],
     "require": {
         "php": ">=5.6.4",
-        "philo/laravel-blade": "^3.1"
+        "philo/laravel-blade": "^3.1",
+        "symfony/finder": "^4.2"
     }
 }

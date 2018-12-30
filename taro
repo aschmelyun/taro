@@ -4,10 +4,11 @@
 require 'vendor/autoload.php';
 
 use Philo\Blade\Blade;
+use Symfony\Component\Finder\Finder;
 
 class Taro
 {
-    public $version = '0.1.1';
+    public $version = '0.2.0';
     public $viewsDir = __DIR__ . '/resources/views';
     public $cacheDir = __DIR__ . '/cache';
     public $contentDir = __DIR__ . '/content';
@@ -29,6 +30,8 @@ class Taro
         $contentFiles = array_diff(scandir($this->contentDir), array('.', '..'));
         $mixManifest = json_decode(str_replace('/dist', '', file_get_contents($this->mixManifest)), true);
 
+        $this->cleanOutputDir();
+
         foreach($contentFiles as $file) {
             $data = json_decode(file_get_contents($this->contentDir . '/' . $file));
             $data->contentDir = $this->contentDir;
@@ -40,6 +43,28 @@ class Taro
         }
 
         $this->finish();
+    }
+
+    public function cleanOutputDir()
+    {
+        $finder = new Finder();
+        $filesToRemove = $finder->files()
+            ->in($this->outputRoot)
+            ->ignoreDotFiles(true);
+
+        foreach($filesToRemove as $file) {
+            unlink($file);
+        }
+
+        $directoriesToRemove = $finder->directories()
+            ->in($this->outputRoot)
+            ->ignoreDotFiles(true);
+
+        foreach(iterator_to_array($directoriesToRemove, true) as $dir) {
+            rmdir($dir);
+        }
+
+        return true;
     }
 
     public function dataHasErrors($data, $file)
