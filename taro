@@ -50,7 +50,8 @@ class Taro
         $finder = new Finder();
         $filesToRemove = $finder->files()
             ->in($this->outputRoot)
-            ->ignoreDotFiles(true);
+            ->ignoreDotFiles(true)
+            ->exclude(['assets']);
 
         foreach($filesToRemove as $file) {
             unlink($file);
@@ -58,7 +59,8 @@ class Taro
 
         $directoriesToRemove = $finder->directories()
             ->in($this->outputRoot)
-            ->ignoreDotFiles(true);
+            ->ignoreDotFiles(true)
+            ->exclude(['assets']);
 
         foreach(iterator_to_array($directoriesToRemove, true) as $dir) {
             rmdir($dir);
