@@ -65,8 +65,8 @@ You can then publish your entire project to a host of your choice as long as the
 ## Roadmap
 Taro is still very much in development, and while it's designed to remain as simple as possible there's a few features that could make for a better overall experience. Here's what's on the path ahead:
 
-- [ ] Re-build after changes in assets or content files 
-- [ ] Live reloading after changes in assets or content files
+- [x] Re-build after changes in assets or content files 
+- [x] Live reloading after changes in assets or content files
 - [ ] Ability to use folders in content directory
 - [ ] Translate content structure to site structure, so slug would just be an override and not required 
 - [ ] Ability to add in and use HTML in JSON content files

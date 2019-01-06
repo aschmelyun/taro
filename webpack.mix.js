@@ -1,5 +1,6 @@
 let mix = require('laravel-mix'),
-    build = require('./taro.build.js');
+    build = require('./taro.build.js'),
+    command = require('node-cmd');
 
 mix.disableNotifications();
 mix.webpackConfig({
@@ -16,4 +17,15 @@ mix.setPublicPath('./')
    })
    .version();
 
-mix.browserSync();
+mix.browserSync({
+    files: [
+        {
+            match: ["content/*.json"],
+            fn: function(event, file) {
+                command.get('php taro build', (error, stdout, stderr) => {
+                    console.log(error ? stderr : stdout);
+                });
+            }
+        }
+    ]
+});
