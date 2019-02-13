@@ -1,6 +1,6 @@
 <?php
 
-class LocalValetDriver extends ValetDriver
+class LocalValetDriver extends BasicValetDriver
 {
     /**
      * Mutates the incoming URI.
